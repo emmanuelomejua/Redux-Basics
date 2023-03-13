@@ -1,14 +1,13 @@
+import { useSelector } from 'react-redux';
 import './recomend.css'
 
 const Recommendation = ({type}) => {
 
-  // let title;
-
-  // if()
+  const name = useSelector((state=>state.user.name))
 
     const title =
     type === "user"
-      ? "Reccomended for John"
+      ? `Reccomended for ${name}`
       : type === "popular"
       ? "Popular on our Website"
       : "Editor's choice";

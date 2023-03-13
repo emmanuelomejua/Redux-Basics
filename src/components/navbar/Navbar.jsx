@@ -1,8 +1,10 @@
 import './navbar.css'
 import img from '../../assets/images.jpg'
 import img1 from '../../assets/arrow2.png'
+import { useSelector } from 'react-redux'
 
-const Navbar = ({name}) => {
+const Navbar = () => {
+   const name = useSelector((state=>state.user.name))
   return (
     <div className='navbar'>
       

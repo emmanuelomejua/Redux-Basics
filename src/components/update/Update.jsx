@@ -1,11 +1,13 @@
 import Warning from "../warning/Warning";
 import "./update.css";
 import img from '../../assets/images.jpg'
-// import { useState } from "react";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 
 export default function Update() {
-  // const [name, setName] = useState("");
-  // const [email, setEmail] = useState("");
+  const user = useSelector((state=>state.user))
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
 
   return (
     <div className="update">
@@ -31,7 +33,8 @@ export default function Update() {
               <input
                 className="formInput"
                 type="text"
-                placeholder="John"
+                placeholder={user.name}
+                onChange={(e)=>setName(e.target.value)}
               />
             </div>
             <div className="formItem">
@@ -40,6 +43,7 @@ export default function Update() {
                 className="formInput"
                 type="text"
                 placeholder="john@gmail.com"
+                onChange={(e)=>setEmail(e.target.value)}
               />
             </div>
             <div className="formItem">
